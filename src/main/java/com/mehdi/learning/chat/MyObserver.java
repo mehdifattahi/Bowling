@@ -1,7 +1,7 @@
 package com.mehdi.learning.chat;
 
-public interface Member {
-    void notify(Member from, String message);
+public interface MyObserver {
+    void notify(MyObserver from, String message);
     String getLatestMessage();
     String gteName();
 }

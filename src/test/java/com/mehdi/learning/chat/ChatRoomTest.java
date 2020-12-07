@@ -40,34 +40,34 @@ class ChatRoomTest {
         chatRoom = new ChatRoom("Room1");
     }
 
-    private Member createUserAndAddToRoom(String name) {
-        Member member1 = new User(name);
-        chatRoom.subscribe(member1);
-        return member1;
+    private MyObserver createUserAndAddToRoom(String name) {
+        MyObserver myObserver1 = new User(name);
+        chatRoom.subscribe(myObserver1);
+        return myObserver1;
     }
 
     @Test
     void makeMember() {
-        Member member1 = new User("User1");
+        MyObserver myObserver1 = new User("User1");
     }
 
     @Test
     void subscribeToChatRoom() {
-        Member member1 = createUserAndAddToRoom("Jafar");
-        assertTrue(chatRoom.isMember(member1));
+        MyObserver myObserver1 = createUserAndAddToRoom("Jafar");
+        assertTrue(chatRoom.isMember(myObserver1));
     }
 
     @Test
     void sendMessage() {
-        Member member1 = createUserAndAddToRoom("User1");
-        Member member2 = createUserAndAddToRoom("User2");
-        Member member3 = createUserAndAddToRoom("User3");
+        MyObserver myObserver1 = createUserAndAddToRoom("User1");
+        MyObserver myObserver2 = createUserAndAddToRoom("User2");
+        MyObserver myObserver3 = createUserAndAddToRoom("User3");
 
         final String message = "Hey members!";
-        chatRoom.sendMessage(member1, message);
+        chatRoom.sendMessage(myObserver1, message);
 
-        assertEquals("User1" + ", " + message, member2.getLatestMessage());
-        assertEquals("User1" + ", " + message, member3.getLatestMessage());
+        assertEquals("User1" + ", " + message, myObserver2.getLatestMessage());
+        assertEquals("User1" + ", " + message, myObserver3.getLatestMessage());
     }
 
     @Test

@@ -5,22 +5,22 @@ import java.util.List;
 
 public class ChatRoom implements MyObservable {
     private String name;
-    private List<Member> members = new ArrayList<>();
+    private List<MyObserver> myObservers = new ArrayList<>();
 
     public ChatRoom(String name) {
         this.name = name;
     }
 
-    public void subscribe(Member member) {
-        members.add(member);
+    public void subscribe(MyObserver myObserver) {
+        myObservers.add(myObserver);
     }
 
-    public void sendMessage(Member from, String message) {
-        members.forEach(m-> m.notify(from , message));
+    public void sendMessage(MyObserver from, String message) {
+        myObservers.forEach(m-> m.notify(from , message));
     }
 
     @Override
-    public boolean isMember(Member member) {
-        return members.contains(member);
+    public boolean isMember(MyObserver myObserver) {
+        return myObservers.contains(myObserver);
     }
 }

@@ -1,7 +1,7 @@
 package com.mehdi.learning.chat;
 
 public interface MyObservable {
-    void subscribe(Member member);
-    void sendMessage(Member from, String message);
-    boolean isMember(Member member);
+    void subscribe(MyObserver myObserver);
+    void sendMessage(MyObserver from, String message);
+    boolean isMember(MyObserver myObserver);
 }

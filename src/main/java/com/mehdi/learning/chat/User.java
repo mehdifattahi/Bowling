@@ -3,7 +3,7 @@ package com.mehdi.learning.chat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User implements Member {
+public class User implements MyObserver {
     private String name;
     private List<String> messages = new ArrayList<>();
 
@@ -12,7 +12,7 @@ public class User implements Member {
     }
 
     @Override
-    public void notify(Member from, String message) {
+    public void notify(MyObserver from, String message) {
         messages.add( from.gteName() + ", " + message);
     }
 
